@@ -1,0 +1,23 @@
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+- id: cii
+  goos:
+    - darwin
+    - linux
+  goarch:
+    - amd64
+    - arm64
+
+archives:
+- builds:
+  - cii
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
